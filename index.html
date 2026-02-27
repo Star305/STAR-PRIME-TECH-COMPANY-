@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STAR PRIME TECH provides digital solutions including websites, dashboards, and tools to help businesses grow smarter and faster.">
+    <meta name="keywords" content="digital solutions, web development, WhatsApp ordering, custom dashboards, Abuja tech company">
+    <meta name="author" content="Mr. Emmanuel">
+    <title>STAR PRIME TECH | Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --text-color: #222;
+            --bg-color: #f7f9fc;
+            --white: #fff;
+            --shadow: rgba(0,0,0,0.1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+        body { background:var(--bg-color); color:var(--text-color); line-height:1.6; scroll-behavior: smooth; }
+        a { text-decoration:none; color:inherit; }
+        header { display:flex; justify-content:space-between; align-items:center; padding:20px 8%; background:var(--white); box-shadow:0 3px 10px var(--shadow); position:sticky; top:0; z-index:1000; transition:background 0.3s; }
+        header.scrolled { background:rgba(255,255,255,0.95); }
+        .logo img { height:50px; transition:transform 0.3s; }
+        .logo img:hover { transform:scale(1.1); }
+        nav { display:flex; }
+        nav a { margin:0 15px; font-weight:600; transition:color 0.3s, transform 0.3s; position:relative; }
+        nav a::after { content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:var(--primary-color); transition:width 0.3s; }
+        nav a:hover::after { width:100%; }
+        nav a:hover { color:var(--primary-color); transform:translateY(-2px); }
+        .menu-toggle { display:none; flex-direction:column; cursor:pointer; }
+        .menu-toggle span { width:25px; height:3px; background:var(--primary-color); margin:4px 0; border-radius:3px; transition:0.3s; }
+        .menu-toggle.active span:nth-child(1) { transform:rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity:0; }
+        .menu-toggle.active span:nth-child(3) { transform:rotate(-45deg) translate(7px, -6px); }
+        .hero { height:90vh; background:linear-gradient(rgba(0,123,255,0.7), rgba(0,123,255,0.7)), url('https://files.catbox.moe/ft49lx.jpg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--white); padding:0 20px; position:relative; overflow:hidden; }
+        .hero::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:var(--primary-color); opacity:0.1; }
+        .hero h1 { font-size:48px; margin-bottom:20px; animation:fadeInDown 1s ease-out; }
+        .hero p { font-size:20px; margin-bottom:30px; animation:fadeInUp 1s ease-out 0.5s; animation-fill-mode:both; }
+        .btn { background:var(--primary-color); color:var(--white); padding:12px 25px; border-radius:30px; font-weight:600; transition:background 0.3s, transform 0.3s; display:inline-block; }
+        .btn:hover { background:var(--secondary-color); transform:scale(1.05); }
+        section { padding:80px 8%; }
+        .section-title { font-size:36px; text-align:center; margin-bottom:60px; color:var(--primary-color); position:relative; }
+        .section-title::after { content:''; display:block; width:60px; height:4px; background:var(--primary-color); margin:15px auto; }
+        .services, .portfolio { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:40px; }
+        .card { background:var(--white); border-radius:15px; box-shadow:0 5px 15px var(--shadow); padding:25px; text-align:center; transition:transform 0.3s, box-shadow 0.3s; overflow:hidden; }
+        .card:hover { transform:translateY(-10px); box-shadow:0 15px 30px var(--shadow); }
+        .card img { width:100%; border-radius:10px; height:200px; object-fit:cover; transition:transform 0.3s; loading:lazy; }
+        .card:hover img { transform:scale(1.05); }
+        .card h3 { margin:15px 0; color:var(--primary-color); }
+        .card p { color:#555; }
+        .contact-info { display:flex; flex-direction:column; gap:20px; text-align:center; max-width:600px; margin:0 auto; }
+        .contact-info a { color:var(--primary-color); transition:color 0.3s; }
+        .contact-info a:hover { color:var(--secondary-color); }
+        .contact-form { max-width:600px; margin:30px auto; background:var(--white); padding:30px; border-radius:15px; box-shadow:0 5px 15px var(--shadow); }
+        .contact-form input, .contact-form textarea { width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:5px; transition:border 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color:var(--primary-color); outline:none; }
+        footer { background:var(--text-color); color:var(--white); text-align:center; padding:40px 10px; position:relative; }
+        footer span { color:var(--primary-color); }
+        .social-links { margin-top:20px; }
+        .social-links a { margin:0 10px; font-size:20px; color:var(--white); transition:color 0.3s; }
+        .social-links a:hover { color:var(--primary-color); }
+        .back-to-top { position:fixed; bottom:20px; right:20px; background:var(--primary-color); color:var(--white); padding:10px 15px; border-radius:50%; display:none; transition:opacity 0.3s; z-index:1000; }
+        .back-to-top:hover { background:var(--secondary-color); }
+        .company-name { display: none; }
+        @keyframes fadeInDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+        @media (max-width:768px) {
+            .menu-toggle { display:flex; }
+            nav { display:none; flex-direction:column; background:var(--white); position:absolute; top:70px; right:8%; padding:20px; box-shadow:0 5px 15px var(--shadow); border-radius:10px; width:200px; }
+            nav.active { display:flex; }
+            nav a { margin:15px 0; }
+            .hero { height:70vh; }
+            .hero h1 { font-size:36px; }
+            .hero p { font-size:18px; }
+            section { padding:60px 5%; }
+            .company-name { display: block; font-size: 18px; font-weight: 600; color: var(--primary-color); flex-grow: 1; text-align: center; }
+        }
+        @media (max-width:480px) {
+            .hero h1 { font-size:28px; }
+            .section-title { font-size:28px; }
+            .company-name { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <div class="logo"><img src="https://files.catbox.moe/51uuw5.jpg" alt="STAR PRIME TECH Logo"></div>
+    <div class="company-name">STAR PRIME TECH</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <h1>Digital Solutions for Modern Businesses</h1>
+        <p>We help businesses go digital with websites, dashboards, and tools that sell smarter.</p>
+        <a href="https://wa.me/2349060245012" class="btn">Contact Us on WhatsApp</a>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+        <div class="card">
+            <i class="fas fa-laptop-code fa-3x" style="color:var(--primary-color); margin-bottom:15px;"></i>
+            <h3>Web Templates</h3>
+            <p>Ready-to-use templates for mini shops, schools, tech stores, and more.</p>
+        </div>
+        <div class="card">
+            <i class="fab fa-whatsapp fa-3x" style="color:var(--primary-color); margin-bottom:15px;"></i>
+            <h3>WhatsApp Ordering Systems</h3>
+            <p>Integrate instant ordering for your business directly via WhatsApp.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-chart-line fa-3x" style="color:var(--primary-color); margin-bottom:15px;"></i>
+            <h3>Custom Dashboards</h3>
+            <p>Simple dashboards and tools to track and manage your business efficiently.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio">
+        <div class="card">
+            <img src="https://files.catbox.moe/ft49lx.jpg" alt="Site 1" loading="lazy">
+            <h3>A Bio Website</h3>
+            <p>A professional website showing a bio about STAR PRIME TECH company.</p>
+        </div>
+        <div class="card">
+            <img src="https://files.catbox.moe/vywnuk.jpg" alt="Site 2" loading="lazy">
+            <h3>Health Website</h3>
+            <p>Professional health website showing products and locations with WhatsApp automated messages.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About STAR PRIME TECH</h2>
+    <p style="max-width:800px; margin:auto; text-align:center;">
+        STAR PRIME TECH COMPANY is founded by <strong>Mr. Emmanuel 🌹</strong>, a passionate young tech entrepreneur dedicated to empowering businesses through digital solutions. We specialize in creating professional websites, dashboards, and tools for businesses of all sizes. Our mission is to make your business <strong>look professional, sell smarter, and grow faster</strong>.
+    </p>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Location: FCT Abuja</p>
+        <p><i class="fas fa-phone-alt"></i> Phone & WhatsApp: <a href="https://wa.me/2349060245012">+234 906 024 5012</a></p>
+        <a href="https://wa.me/2349060245012" class="btn">Message Us on WhatsApp</a>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with your actual Formspree or other form endpoint -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.528!2d7.494!3d9.057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sAbuja%2C%20Federal%20Capital%20Territory%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1670000000000" width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<footer>
+    © 2026 STAR PRIME TECH COMPANY. All Rights Reserved.<br>
+    Created by <span>Mr. Emmanuel 🌹</span>
+    <div class="social-links">
+        <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/company/yourcompany" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</footer>
+
+<a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById("navMenu");
+        nav.classList.toggle("active");
+        const toggle = document.querySelector(".menu-toggle");
+        toggle.classList.toggle("active");
+    }
+
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        header.classList.toggle('scrolled', window.scrollY > 0);
+
+        const backToTop = document.getElementById('backToTop');
+        backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+</script>
+
+</body>
+</html>
